@@ -3,7 +3,7 @@ package ro.ase.ppoo.abstracts;
 import ro.ase.ppoo.enums.Gender;
 
 //Definiți o clasă abstractă de bază + cel puțin o metodă abstractă.
-public abstract class Person {
+public abstract class Person implements Comparable<Person> {
     private String name;
     private int age;
     private Gender gender;
@@ -53,4 +53,13 @@ public abstract class Person {
     }
 
     protected abstract void introduceYourself();
+
+    //Comparable dupa varsta si nume
+    @Override
+    public int compareTo(Person other) {
+        int ageComparison = Integer.compare(this.age, other.age);
+        if(ageComparison!=0)
+            return ageComparison;
+        return this.name.compareTo(other.name);
+    }
 }
