@@ -41,4 +41,19 @@ public class Manager extends Person implements Payable {
     public float calculateSalaryAfterTaxes(float baseSalary) {
         return baseSalary * 0.75f; // Exemplu simplu: 25% taxe
     }
+
+    //Implementați o metodă care face o operație pe elementele colecției
+    public float mediumSalaryOnProject(){
+        float salary =0;
+        for(Employee e: teamMembers){
+            salary+=e.getSalary();
+        }
+        return salary/teamMembers.size();
+    }
+
+    //sau mai simplu adaugam membri in echipa
+    public void addTeamMember(Employee e){
+        if(teamMembers.size()<teamSize && !teamMembers.contains(e))
+            teamMembers.add(e);
+    }
 }
