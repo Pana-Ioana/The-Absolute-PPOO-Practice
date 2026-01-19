@@ -12,6 +12,7 @@ import java.util.List;
 //În main: creați obiecte din clasa de la NOTA 6, salvați-le într-o colecție standard, sortați, afișați.
 //Apelați metodea metoda abstractă pentru verificare.
 public class Main {
+    static List<Manager> managersList = new ArrayList<>();
     public static void main(String[] args) {
         Employee employee = new Employee("John Doe", 28, Gender.MALE, 5000.0f, true, "IT");
         Employee employee1 = new Employee("Poppy Johnson", 30, Gender.FEMALE, 6000.0f, true, "HR");
@@ -50,6 +51,13 @@ public class Main {
         }catch (Exception e){
             e.printStackTrace();
         }
+
+        managersList.addAll(managers);
+
+        Thread t1 = new MyThread();
+        Thread t2 = new MyThread();
+        t1.start();
+        t2.start();
 
     }
 
