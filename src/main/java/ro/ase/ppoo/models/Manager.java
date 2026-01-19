@@ -33,7 +33,7 @@ public class Manager extends Person implements Payable {
     }
 
     @Override
-    protected void introduceYourself() {
+    public void introduceYourself() {
         System.out.println("Hello, my name is " + getName() + ", I manage the project " + project + ".");
     }
 
@@ -55,5 +55,17 @@ public class Manager extends Person implements Payable {
     public void addTeamMember(Employee e){
         if(teamMembers.size()<teamSize && !teamMembers.contains(e))
             teamMembers.add(e);
+    }
+
+    public int getTeamSize() {
+        return teamSize;
+    }
+
+    public List<Employee> getTeamMembers() {
+        return teamMembers;
+    }
+
+    public void setTeamMembers(List<Employee> teamMembers) {
+        this.teamMembers = teamMembers;
     }
 }
