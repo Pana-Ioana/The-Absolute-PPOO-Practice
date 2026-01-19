@@ -4,6 +4,8 @@ import ro.ase.ppoo.enums.Gender;
 import ro.ase.ppoo.models.Employee;
 import ro.ase.ppoo.models.Manager;
 
+import java.io.File;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +41,15 @@ public class Main {
 
         displayAll(managers);
 
+        //Salvați datele din colecții în fișier text, un obiect pe linie.
+        try {
+            PrintStream ps = new PrintStream(new File("managers.txt"));
+            for(Manager m: managers){
+                ps.println(m);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 
